@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 from typing import List
-from 
+
 def get_requirements(file_path:str) -> List[str]:
 	"""
 		This function collects the packages from 'requirements.txt' and returns a list containing these packages
