@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/SushantManglekar/Desktop/projects/car-price-prediction-system/mlruns/0/c3829d7659cf4c98950d234085392b76/artifacts
+end_time: 1731730484630
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c3829d7659cf4c98950d234085392b76
+run_name: caring-frog-359
+run_uuid: c3829d7659cf4c98950d234085392b76
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731730483582
+status: 3
+tags: []
+user_id: SushantManglekar
