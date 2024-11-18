@@ -1,2 +1,4 @@
 /raw_data.csv
-/cleaned_data.csv
+
+/train_data.csv
+/test_data.csv
