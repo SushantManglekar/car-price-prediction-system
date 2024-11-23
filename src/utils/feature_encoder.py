@@ -36,7 +36,7 @@ def perform_feature_encoding(data: pd.DataFrame):
         )
         test_data['distance_travelled_group'] = pd.qcut(
             test_data['distance_travelled'], q=3, labels=labels, duplicates='drop'
-        )
+        ) 
         distance_travelled_encoder = LabelEncoder()
         train_data['distance_travelled_group'] = distance_travelled_encoder.fit_transform(
             train_data['distance_travelled_group']

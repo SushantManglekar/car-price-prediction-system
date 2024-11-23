@@ -118,24 +118,24 @@ def perform_feature_engineering(data: pd.DataFrame):
             train_data.drop(columns=columns_to_drop, inplace=True)
             test_data.drop(columns=columns_to_drop, inplace=True)
             
-            # Step 7. Feature Selection
-            logger.log_info("Step 7: Selecting features")
+            # # Step 7. Feature Selection
+            # logger.log_info("Step 7: Selecting features")
             train_data.dropna(inplace=True)
             test_data.dropna(inplace=True)
             
-            X_train = train_data.drop(columns=["price"])
-            y_train = train_data["price"]
-            selector = SelectKBest(score_func=f_regression, k=10)
-            X_train_selected = selector.fit_transform(X_train, y_train)
-            selected_features = X_train.columns[selector.get_support()].tolist()
+            # X_train = train_data.drop(columns=["price"])
+            # y_train = train_data["price"]
+            # selector = SelectKBest(score_func=f_regression, k=10)
+            # X_train_selected = selector.fit_transform(X_train, y_train)
+            # selected_features = X_train.columns[selector.get_support()].tolist()
 
-            X_test = test_data.drop(columns=["price"])
-            X_test_selected = selector.transform(X_test)
-            test_data = test_data[selected_features + ["price"]]
-            train_data = train_data[selected_features + ["price"]]
+            # X_test = test_data.drop(columns=["price"])
+            # X_test_selected = selector.transform(X_test)
+            # test_data = test_data[selected_features + ["price"]]
+            # train_data = train_data[selected_features + ["price"]]
 
-            logger.log_info(f"Selected features: {selected_features}")
-            mlflow.log_param("selected_features", selected_features)
+            # logger.log_info(f"Selected features: {selected_features}")
+            # mlflow.log_param("selected_features", selected_features)
 
             # Save processed data
             train_data.to_csv("./data/train_data.csv", index=False)
