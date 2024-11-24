@@ -68,6 +68,20 @@ The **Car-Price-Prediction-App** is a machine learning-based web application tha
 - Engine size and car brand significantly influence car prices.
 - Certain features required transformations for better model accuracy.
 
+In this project, a significant amount of time was spent on Exploratory Data Analysis (EDA) to understand the dataset before proceeding to model training. Below are some key visualizations from the EDA process:
+
+### 1. Price Distribution by Category
+![Price Distribution by Category](https://github.com/SushantManglekar/car-price-prediction-system/blob/master/price_dist-category.png)
+
+### 2. Price Distribution by Model
+![Price Distribution by Model](https://github.com/SushantManglekar/car-price-prediction-system/blob/master/price_dist_model.png)
+
+### 3. Feature Correlation
+![Feature Correlation](https://github.com/SushantManglekar/car-price-prediction-system/blob/master/correlation.png)
+
+### 4. Outlier Analysis
+![Outlier Analysis](https://github.com/SushantManglekar/car-price-prediction-system/blob/master/Outlier_analysis.png)
+
 ---
 
 ## Feature Engineering
