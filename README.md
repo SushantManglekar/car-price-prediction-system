@@ -110,7 +110,7 @@ The application is containerized using Docker for consistent deployment across e
 1. **GitHub Actions Workflow:**
    - Builds the Docker image.
    - Runs health check tests.
-   - Deploys the image to ECS upon passing all tests.
+   - Deploy the image to ECS upon passing all tests.
 
 ---
 
@@ -120,3 +120,11 @@ The application is containerized using Docker for consistent deployment across e
    ```bash
    git clone https://github.com/your-repo/car-price-prediction-app.git
    cd car-price-prediction-app
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+3. Run Flask app:
+   ```bash
+   python app.py
+
