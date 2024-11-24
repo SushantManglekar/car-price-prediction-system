@@ -121,7 +121,7 @@ def predict_price():
     predicted_price = model.predict(input_df)
 
     # Return the predicted price
-    return jsonify({"predicted_price": round(predicted_price[0])})
+    return jsonify({"predicted_price": f'${round(predicted_price[0])}'})
 
 
 if __name__ == '__main__':
