@@ -35,7 +35,7 @@ def data_preprocessing_pipeline(file_path: str):
 
 if __name__ == "__main__":
     # File path to the raw dataset
-    file_path = './data/raw_data.csv'
+    file_path = 'https://dagshub.com/SushantManglekar/car-price-prediction-system/src/master/data/raw_data.csv'
 
     # Execute the data preprocessing pipeline
     data_preprocessing_pipeline(file_path)

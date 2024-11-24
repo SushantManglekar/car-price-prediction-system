@@ -78,7 +78,8 @@ if __name__ == "__main__":
     
     try:
         # Load the data into a DataFrame
-        data = pd.read_csv('./data/raw_data.csv')
+        # data = pd.read_csv('./data/raw_data.csv')
+        data = pd.read_csv('https://dagshub.com/SushantManglekar/car-price-prediction-system/src/master/data/raw_data.csv')
 
         # Call the perform_eda function
         perform_eda(data=data)

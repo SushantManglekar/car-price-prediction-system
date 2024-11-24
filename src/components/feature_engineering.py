@@ -150,7 +150,7 @@ def perform_feature_engineering(data: pd.DataFrame):
 
 if __name__ == "__main__":
     try:
-        data = pd.read_csv('./data/raw_data.csv')
+        data = pd.read_csv('https://dagshub.com/SushantManglekar/car-price-prediction-system/src/master/data/raw_data.csv')
         perform_feature_engineering(data)
     except Exception as e:
         logger.log_error(f"Error in main execution: {str(e)}")

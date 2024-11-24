@@ -1,0 +1,58 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master # Run the pipeline on pushes to the main branch
+
+jobs:
+  build-test-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout Code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set Up Python
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      # Step 3: Install Dependencies and Run Tests
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pytest tests/  # Run tests (adjust the test folder as needed)
+
+      # Step 4: Log in to Amazon ECR
+      - name: Log in to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      # Step 5: Build and Tag Docker Image
+      - name: Build Docker Image
+        run: |
+          IMAGE_TAG=latest
+          docker build -t ${{ secrets.ECR_URI }}:$IMAGE_TAG .
+
+      # Step 6: Push Docker Image to ECR
+      - name: Push Docker Image
+        run: |
+          IMAGE_TAG=latest
+          docker push ${{ secrets.ECR_URI }}:$IMAGE_TAG
+
+  deploy-ecs:
+    needs: build-test-push
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Deploy to ECS
+      - name: Deploy to Amazon ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ecs-task-definition.json
+          service: car-price-prediction-service
+          cluster: car-price-prediction-cluster
+          wait-for-service-stability: true
+          region: ap-south-1

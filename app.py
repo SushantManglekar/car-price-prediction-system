@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import pickle
 import joblib
+import mlflow.pyfunc
+import subprocess
 
 app = Flask(__name__)
 
@@ -10,7 +12,46 @@ app = Flask(__name__)
 data = pd.read_csv("./data/raw_data.csv")
 distance_travelled_encoder = joblib.load('./models/distance_travelled_encoder.pkl')
 scaler = joblib.load('./models/scaler.pkl')  # Replace with your scaler path
-model = pickle.load(open('./models/best_model.pkl', 'rb'))  # Replace with your model path
+
+model = joblib.load('./models/xgboost_model.pkl')
+# Configuration
+MODEL_NAME = "BestCarPricePredictionModel"  # Name of your model in MLflow
+STAGE = "Production"  # Stage to load the model from
+
+# Load the latest production model from MLflow
+def load_model():
+    """
+    Load the latest production model from MLflow Model Registry.
+    """
+    global model
+    try:
+        model = mlflow.pyfunc.load_model(f"models:/{MODEL_NAME}/{STAGE}")
+    except Exception as e:
+     
+        raise RuntimeError(f"Failed to load model: {e}")
+    
+# Trigger training pipeline (optional)
+@app.route("/train", methods=["POST"])
+def train_model():
+    """
+    Trigger the model training pipeline.
+    """
+    try:
+        # Run the training pipeline script
+        subprocess.run(["python", "src/pipeline/model_training.py"],
+               check=True)
+        return jsonify({"message": "Model training pipeline triggered successfully!"})
+    except subprocess.CalledProcessError as e:
+        return jsonify({"error": f"Training failed: {e}"}), 500
+
+
+# Health check endpoint
+@app.route("/health", methods=["GET"])
+def health():
+    """
+    Health check for the API.
+    """
+    return jsonify({"status": "OK"}), 200
 
 def preprocess_input(user_input):
     """
@@ -84,4 +125,6 @@ def predict_price():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    load_model()
+        
+    app.run(host="0.0.0.0", port=5000)
