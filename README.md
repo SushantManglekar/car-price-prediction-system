@@ -20,8 +20,9 @@
    - [AWS ECS Deployment](#aws-ecs-deployment)
    - [CI/CD Pipeline](#cicd-pipeline)
 9. [How to Run Locally](#how-to-run-locally)
-10. [Future Work](#future-work)
-11. [Acknowledgements](#acknowledgements)
+10. [API Endpoints](#api-endpoints)
+11. [Future Work](#future-work)
+12. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -143,7 +144,18 @@ The application is containerized using Docker for consistent deployment across e
 3. Run Flask app:
    ```bash
    python app.py
+   
+## API Endpoints
 
+The following screenshots show the API call examples for predicting car prices and testing the app.
+
+### 1. API Call Screenshot for Price Prediction
+![API Call for Price Prediction](https://github.com/SushantManglekar/car-price-prediction-system/blob/master/public/Screenshot%202024-11-24%20093445.png)
+
+### 2. API Call Screenshot for health check Endpoint
+![API Call for health check Endpoint](https://github.com/SushantManglekar/car-price-prediction-system/blob/master/public/Screenshot%202024-11-24%20093729.png)
+
+---
 ## Future Work
 
 - **Model Enhancements:** Experiment with advanced algorithms like Gradient Boosting (XGBoost, LightGBM) or Neural Networks to improve prediction accuracy.
