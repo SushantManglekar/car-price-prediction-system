@@ -149,7 +149,6 @@ The application is containerized using Docker for consistent deployment across e
 
 - **Dataset Source:**  
   The dataset used for this project is publicly available at [https://www.kaggle.com/datasets/mohidabdulrehman/ultimate-car-price-prediction-dataset](#).  
-  *(Replace with the actual dataset source and link.)*
 
 - **Tools and Platforms:**  
   - [Flask](https://flask.palletsprojects.com/) for building the web application.
@@ -158,8 +157,5 @@ The application is containerized using Docker for consistent deployment across e
   - [Docker](https://www.docker.com/) for containerizing the application.
   - [AWS ECS](https://aws.amazon.com/ecs/) and [AWS Fargate](https://aws.amazon.com/fargate/) for deployment and orchestration.
   - [GitHub Actions](https://github.com/features/actions) for CI/CD pipeline integration.
-
-- Special thanks to [OpenAI](https://www.openai.com/) for supporting the learning and development of this project.
-
 ---
 
