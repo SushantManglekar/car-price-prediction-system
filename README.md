@@ -1,8 +1,9 @@
 # Car-Price-Prediction-App
 
 ![Flask](https://img.shields.io/badge/Framework-Flask-blue)
-![Docker](https://img.shields.io/badge/Containerization-Docker-blue)
+![Docker](https://img.shields.io/badge/Containerization-Docker-skyblue)
 ![AWS ECS](https://img.shields.io/badge/Deployment-AWS--ECS-orange)
+![AWS CloudWatch](https://img.shields.io/badge/Monitoring-AWS--CloudWatch-lime)
 ![CI/CD](https://img.shields.io/badge/CI/CD-GitHub--Actions-green)
 ![MLFlow](https://img.shields.io/badge/Experiment%20Tracking-MLFlow-blue)
 ![DVC](https://img.shields.io/badge/Dataset%20Versioning-DVC-black)
