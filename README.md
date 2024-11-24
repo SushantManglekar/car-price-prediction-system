@@ -5,6 +5,7 @@
 ![AWS ECS](https://img.shields.io/badge/Deployment-AWS--ECS-orange)
 ![CI/CD](https://img.shields.io/badge/CI/CD-GitHub--Actions-green)
 ![MLFlow](https://img.shields.io/badge/Experiment%20Tracking-MLFlow-blue)
+![DVC](https://img.shields.io/badge/Dataset%20Versioning-DVC-black)
 
 ## Table of Contents
 1. [Introduction](#introduction)
